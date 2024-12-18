@@ -90,11 +90,6 @@ public class Main {
                               public void keyPressed(KeyEvent e) {
                                   System.out.println("Key Pressed: " + e.getKeyCode());
 
-                                  if (String.valueOf(e.getKeyCode()).equals("27")) {
-                                      Konec();
-                                      klic = generateRandomString(8);
-                                  }
-
                                   try {
                                       //w = 87,s = 83, d = 68, a = 65, q = 81,e=  69, esc= 27
                                       Poslat(String.valueOf(e.getKeyCode()));
@@ -102,6 +97,10 @@ public class Main {
                                       throw new RuntimeException(ex);
                                   }
 
+                                  if (String.valueOf(e.getKeyCode()).equals("27")) {
+                                      Konec();
+                                      klic = generateRandomString(8);
+                                  }
                               }
 
                               @Override
