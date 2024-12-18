@@ -141,6 +141,7 @@ public class Main {
 
     public static void Hlaseni() throws SocketException, UnknownHostException {
         Authentification(ipina, Integer.parseInt(port), klic);
+        System.out.println("Hlaseni");
     }
 
     public static void Poslat(String stisknuto) throws SocketException, UnknownHostException {
@@ -207,13 +208,14 @@ public class Main {
             }
             fr.setSize(200,100);
             fr.update(fr.getGraphics());
-
-            try {
-                Hlaseni();
-            } catch (SocketException | UnknownHostException ex) {
-                ex.printStackTrace(); // Zachycení výjimky a její zpracování
-            }
         }
+
+        try {
+            Hlaseni();
+        } catch (SocketException | UnknownHostException ex) {
+            ex.printStackTrace(); // Zachycení výjimky a její zpracování
+        }
+
         fr.requestFocus();
     }
 }

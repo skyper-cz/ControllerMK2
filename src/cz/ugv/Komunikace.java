@@ -35,8 +35,12 @@ public class Komunikace {
         DatagramSocket socket = new DatagramSocket();
         System.out.println("Kod na: " + adresa + ":" + port);
 
+        String json = "{"
+                + "\"klic\":\"" + Klic + "\""
+                + "}";
+
         try {
-            byte[] buffer = Klic.getBytes();
+            byte[] buffer = json.getBytes();
             DatagramPacket request = new DatagramPacket(buffer, buffer.length, address, (port + 20));
             socket.send(request);
         }
