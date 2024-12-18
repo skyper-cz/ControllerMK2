@@ -33,7 +33,7 @@ public class Komunikace {
 
         InetAddress address = InetAddress.getByName(adresa);
         DatagramSocket socket = new DatagramSocket();
-        System.out.println("Kod na: " + adresa + ":" + port + " A jedeme: " + Klic);
+        System.out.println("Kod na: " + adresa + ":" + port);
 
         try {
             byte[] buffer = Klic.getBytes();

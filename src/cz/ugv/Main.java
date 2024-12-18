@@ -92,6 +92,7 @@ public class Main {
 
                                   if (String.valueOf(e.getKeyCode()).equals("27")) {
                                       Konec();
+                                      klic = generateRandomString(8);
                                   }
 
                                   try {
@@ -125,14 +126,6 @@ public class Main {
         varovani.setVisible(true);
     }
 
-    public static void Hlaseni(String stisknuto) throws SocketException, UnknownHostException {
-        Authentification(ipina, Integer.parseInt(port), klic);
-    }
-
-    public static void Poslat(String stisknuto) throws SocketException, UnknownHostException {
-        Communication(ipina, Integer.parseInt(port), stisknuto, klic);
-    }
-
     public static void Rezim(ActionEvent e) {
         cesta = !cesta;
 
@@ -146,7 +139,16 @@ public class Main {
         fr.update(fr.getGraphics());
     }
 
-    public static void Potvrzeni(ActionEvent e) {
+    public static void Hlaseni() throws SocketException, UnknownHostException {
+        Authentification(ipina, Integer.parseInt(port), klic);
+    }
+
+    public static void Poslat(String stisknuto) throws SocketException, UnknownHostException {
+        Communication(ipina, Integer.parseInt(port), stisknuto, klic);
+    }
+
+    public static void Potvrzeni(ActionEvent e)  {
+
         ipina = vlozenaipadresa.getText();
         port = vlozenyport.getText();
         portvidea = vlozenyportvidea.getText();
@@ -205,6 +207,12 @@ public class Main {
             }
             fr.setSize(200,100);
             fr.update(fr.getGraphics());
+
+            try {
+                Hlaseni();
+            } catch (SocketException | UnknownHostException ex) {
+                ex.printStackTrace(); // Zachycení výjimky a její zpracování
+            }
         }
         fr.requestFocus();
     }
