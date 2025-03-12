@@ -36,7 +36,7 @@ public class Main {
     public static JTextField vlozenyportvidea = new JTextField("Zde vložte port videa");
 
     public static void main(String[] args) {
-        klic = generateRandomString(8);
+        klic = generateRandomString(24);
         Inicializace();
     }
 
